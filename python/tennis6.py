@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 class TennisGame6:
+    # Utilisation d'une liste SCORE_NAMES pour stocker les noms des scores, ce qui élimine la duplication de code.
+    SCORE_NAMES = ["Love", "Fifteen", "Thirty", "Forty"]
+
     def __init__(self, player1Name, player2Name):
         self.player1Name = player1Name
         self.player2Name = player2Name
@@ -18,18 +21,9 @@ class TennisGame6:
 
         if (self.player1Score == self.player2Score):
             # tie score
-            tieScore: str
-            match self.player1Score:
-                case 0:
-                    tieScore = "Love-All"
-                case 1:
-                    tieScore = "Fifteen-All"
-                case 2:
-                    tieScore = "Thirty-All"
-                case _:
-                    tieScore = "Deuce"
-
-            result = tieScore
+           tieScore: str
+           tieScore = self._tie_score()
+           return tieScore
         elif (self.player1Score >= 4 or self.player2Score >= 4):
             # end-game score
             endGameScore: str
@@ -74,6 +68,8 @@ class TennisGame6:
 
         return result
 
-
-
-
+    def _tie_score(self):
+        if self.player1Score < 3:
+            return TennisGame6.SCORE_NAMES[self.player1Score] + "-All"
+        else:
+            return "Deuce"
