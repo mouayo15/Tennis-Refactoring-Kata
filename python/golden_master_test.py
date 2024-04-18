@@ -1,11 +1,9 @@
 import unittest
 from tennis6 import TennisGame6
 
-
 class GoldenMasterTest(unittest.TestCase):
-
-    #DIR = "C:\\Users\\ateli\\Sources\\Formations\\EPSI Toulouse\\2023-2024\\I1 DEV\\TennisKata$\\python\\golden-master";
     DIR = "./golden-master"
+
     @staticmethod
     def play_game(p1Points, p2Points, p1Name, p2Name):
         game = TennisGame6(p1Name, p2Name)
@@ -38,3 +36,5 @@ class GoldenMasterTest(unittest.TestCase):
                     file.close()
                     self.assertEqual(attendu, sortie)
 
+if __name__ == '__main__':
+    unittest.main()
