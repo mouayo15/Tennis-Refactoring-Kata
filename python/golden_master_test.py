@@ -1,4 +1,5 @@
 import unittest
+import os
 from tennis6 import TennisGame6
 
 class GoldenMasterTest(unittest.TestCase):
@@ -18,6 +19,8 @@ class GoldenMasterTest(unittest.TestCase):
         return f"{self.DIR}/{self.LANG}/{score_player_1}_{score_player_2}.txt"
 
     def _test_record(self):
+        os.makedirs(f"{self.DIR}/{self.LANG}/", exist_ok=True)
+
         for score_player_1 in list(range(0, 16)):
             for score_player_2 in list(range(0, 16)):
                 with self.subTest(f"{score_player_1}, {score_player_2}"):
