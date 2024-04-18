@@ -19,8 +19,10 @@ class GoldenMasterTest(unittest.TestCase):
         return f"{self.DIR}/{self.LANG}/{score_player_1}_{score_player_2}.txt"
 
     def _test_record(self):
+        # Création des répertoires si nécessaire pour assurer que les repertoires existent
         os.makedirs(f"{self.DIR}/{self.LANG}/", exist_ok=True)
 
+        # Enregistrement des résultats de chaque partie dans des fichiers
         for score_player_1 in list(range(0, 16)):
             for score_player_2 in list(range(0, 16)):
                 with self.subTest(f"{score_player_1}, {score_player_2}"):
@@ -30,6 +32,7 @@ class GoldenMasterTest(unittest.TestCase):
                     file.close()
 
     def test_replay(self):
+        # Vérification que les résultats rejoués correspondent aux enregistrements
         for score_player_1 in list(range(0, 16)):
             for score_player_2 in list(range(0, 16)):
                 with self.subTest(f"{score_player_1}, {score_player_2}"):
