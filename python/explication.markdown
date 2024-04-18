@@ -7,3 +7,5 @@ Il y a une redondance significative dans la méthode score lorsque q'on attribue
 Création de la fonction privée _tie_score qui renvoie le score name si le score de deux joueurs sont égaux  
 2.Refacto de end game score
 3.refacto regular_score
+# Golden master 
+Création de la méthode de test golden master avec une seule langue français 
