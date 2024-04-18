@@ -17,51 +17,19 @@ class TennisGame6:
             self.player2Score += 1
 
     def score(self):
-        result: str
-
         if self.player1Score == self.player2Score:
             # tie score
-           tie_score: str
-           tie_score = self._tie_score()
-           return tie_score
+            return self._tie_score()
         elif self.player1Score >= 4 or self.player2Score >= 4:
             # end-game score
-            end_game_score: str
-            end_game_score = self._end_game_score()
-            return end_game_score
+            return self._end_game_score()
         else:
             # regular score
-            regularScore: str
-
-            match self.player1Score:
-                case 0:
-                    score1 = "Love"
-                case 1:
-                    score1 = "Fifteen"
-                case 2:
-                    score1 = "Thirty"
-                case _:
-                    score1 = "Forty"
-
-            match self.player2Score:
-                case 0:
-                    score2 = "Love"
-                case 1:
-                    score2 = "Fifteen"
-                case 2:
-                    score2 = "Thirty"
-                case _:
-                    score2 = "Forty"
-
-            regularScore = score1 + "-" + score2
-
-            result = regularScore
-
-        return result
+            return self._regular_score()
 
     def _tie_score(self):
         if self.player1Score < 3:
-            return TennisGame6.SCORE_NAMES[self.player1Score] + "-All"
+            return self.SCORE_NAMES[self.player1Score] + "-All"
         else:
             return "Deuce"
 
@@ -73,3 +41,6 @@ class TennisGame6:
         else:
             winner = self.player1Name if score_diff >= 2 else self.player2Name
             return "Win for " + winner
+
+    def _regular_score(self):
+        return self.SCORE_NAMES[self.player1Score] + "-" + self.SCORE_NAMES[self.player2Score]
