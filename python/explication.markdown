@@ -5,3 +5,4 @@ Il y a une redondance significative dans la méthode score lorsque q'on attribue
 
 1.Refacto de tie score 
 Création de la fonction privée _tie_score qui renvoie le score name si le score de deux joueurs sont égaux  
+2.Refacto de end game score
